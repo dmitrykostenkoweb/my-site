@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
 @import "./base.css";
 @import "./cursor.css";
 
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.background {
+    background-image: var(--base-bg);
+}
+
+.default-position {
+    transform: translate(-100vw);
+}

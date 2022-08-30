@@ -9,7 +9,7 @@
     transition: transform 0.3s ease;
     transform-origin: center center;
     pointer-events: none;
-    z-index: 1000;
+    z-index: var(--cursore-z-index);
 }
 
 .grow,

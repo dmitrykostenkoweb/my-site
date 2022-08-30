@@ -1,13 +1,29 @@
+import { reactive } from "vue";
 import gsap from "gsap";
-import { ref, type Ref } from "vue";
+import type {
+  AnimationState,
+  UseAnimation,
+} from "@/composables/useAnimation/useAnimation.model";
 
-const completeAnimations = ref<string[]>([]);
+const state: AnimationState = reactive({
+  completeAnimations: [],
+});
 
-export default function useAnimation(): {
-  animation: (trigger: string, translate: number) => void;
-  completeAnimations: Ref<string[]>;
-} {
-  const animation = (trigger: string, translate = 0): void => {
+export default function useAnimation(): UseAnimation {
+  const get = <T extends keyof AnimationState>(keyOfState: T) =>
+    state[keyOfState];
+  const set = <T extends keyof AnimationState>(
+    keyOfState: T,
+    value: AnimationState[T]
+  ) => {
+    state[keyOfState] = value;
+  };
+
+  const animation = (
+    trigger: string,
+    translate = 0,
+    startTrigger = 50
+  ): void => {
     const triggerClass = `.${trigger}`;
     gsap.to(`.${trigger}`, {
       x: `${translate}vw`,
@@ -16,7 +32,7 @@ export default function useAnimation(): {
       ease: "elastic",
       scrollTrigger: {
         trigger: triggerClass,
-        start: "center center+=0",
+        start: `center center-=${startTrigger}`,
         end: "center ",
         toggleActions: "play pause resume ",
         // toggleActions:
@@ -26,13 +42,14 @@ export default function useAnimation(): {
         id: trigger,
       },
       onComplete: (): void => {
-        completeAnimations.value.push(trigger);
+        state.completeAnimations.push(trigger);
       },
     });
   };
 
   return {
+    get,
+    set,
     animation,
-    completeAnimations,
   };
 }

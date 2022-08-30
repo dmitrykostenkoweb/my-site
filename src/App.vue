@@ -1,6 +1,6 @@
 <template>
   <div ref="cursor" class="cursor"></div>
-  <RouterView class="background" />
+  <RouterView class="background main" />
 </template>
 
 <script setup lang="ts">
@@ -18,4 +18,9 @@ onMounted(async (): Promise<void> => {
 });
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.main {
+  width: 100vw;
+  overflow-x: hidden;
+}
+</style>

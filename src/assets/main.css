@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
 @import "./base.css";
 @import "./cursor.css";
+@import "./animation.css";
 
 body {
     font-family: 'Raleway', sans-serif;
+    width: calc(100vw - 56px);
 }
 
 .background {

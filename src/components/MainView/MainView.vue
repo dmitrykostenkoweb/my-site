@@ -1,36 +1,38 @@
 <template>
   <section class="main-view-wrapper">
-    <WelcomeCaption class="default-position welcome" />
-    <PostCaption class="default-position post" />
-    <WorkplacePopup />
+    <AboutInfo class="default-position about" />
   </section>
-  <section class="main-view-wrapper"></section>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
-import WelcomeCaption from "@/components/WelcomeCaption";
-import PostCaption from "@/components/PostCaption";
-import WorkplacePopup from "@/components/WorkplacePopup";
-
+import { computed, onMounted } from "vue";
 import { useAnimation } from "@/composables";
+import AboutInfo from "@/components/AboutInfo";
 
-const loadAnimation = (): void => {
-  useAnimation().animation("welcome", 0);
-  useAnimation().animation("post", 0);
-};
-
-onMounted((): void => loadAnimation());
+const isAboutAnimationComplete = computed(
+  (): boolean =>
+    !!useAnimation()
+      .get("completeAnimations")
+      .find((item: string): boolean => item === "about")
+);
+const generateMainViewHeight = computed((): string =>
+  isAboutAnimationComplete.value ? "100vh" : "110vh"
+);
+onMounted((): void => useAnimation().animation("about", 0, 10));
 </script>
 
 <style lang="scss">
 .main-view-wrapper {
+  position: relative;
+
+  width: 100vw;
+  height: v-bind(generateMainViewHeight);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--main-page-gap);
-  width: 100vw;
-  height: 100vh;
+
+  transition: 1s ease-in-out;
 }
 </style>

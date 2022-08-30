@@ -9,13 +9,14 @@
     --black: #181818;
 
     /*offsets*/
-    --main-page-gap: 32px;
-    --base-app-gap: 16px;
+    --base-app-space: 16px;
 
     --base-padding: 8px;
 
 
     --base-radius: 8px;
+
+    --cursore-z-index: 1000
 }
 
 /*:TODO*/

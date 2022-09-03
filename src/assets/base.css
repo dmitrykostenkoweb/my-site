@@ -6,7 +6,7 @@
 
 
     /*colors*/
-    --base-bg: linear-gradient(to top, #007adf 0%, #00ecbc 100%);
+    --base-gradient: linear-gradient(to top, #007adf 0%, #00ecbc 100%);
     --primary: #00539a;
     --black: #181818;
 
@@ -19,7 +19,8 @@
 
     --base-radius: 8px;
 
-    --cursore-z-index: 1000
+    --cursore-z-index: 1000;
+    --base-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 

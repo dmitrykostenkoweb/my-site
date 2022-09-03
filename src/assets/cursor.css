@@ -10,19 +10,18 @@
     transform-origin: center center;
     pointer-events: none;
     z-index: var(--cursore-z-index);
-}
-
-.cursor:after {
-    content: 'Massage me on Linkedin';
     font-size: var(--s-font-size);
-    
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grow,
 .grow-small {
     transform: scale(2.5);
     background: white;
-    mix-blend-mode: difference;
+    mix-blend-mode: exclusion;
     border: none;
 }
 

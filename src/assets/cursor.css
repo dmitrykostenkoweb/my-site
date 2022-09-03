@@ -12,16 +12,22 @@
     z-index: var(--cursore-z-index);
 }
 
+.cursor:after {
+    content: 'Massage me on Linkedin';
+    font-size: var(--s-font-size);
+    
+}
+
 .grow,
 .grow-small {
-    transform: scale(4);
+    transform: scale(2.5);
     background: white;
     mix-blend-mode: difference;
     border: none;
 }
 
 .grow-small {
-    transform: scale(2);
+    transform: scale(1.5);
 }
 
 /* classes for custom cursor:

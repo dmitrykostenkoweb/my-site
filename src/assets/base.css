@@ -1,7 +1,9 @@
 :root {
     /*fonts*/
-    --big-font-size: 2rem;
-    --small-font-size: 0.8rem;
+    --xxl-font-size: 4rem;
+    --xl-font-size: 2rem;
+    --s-font-size: 0.8rem;
+
 
     /*colors*/
     --base-bg: linear-gradient(to top, #007adf 0%, #00ecbc 100%);
@@ -9,6 +11,7 @@
     --black: #181818;
 
     /*offsets*/
+    --base-app-margin: 32px;
     --base-app-space: 16px;
 
     --base-padding: 8px;
@@ -19,38 +22,4 @@
     --cursore-z-index: 1000
 }
 
-/*:TODO*/
-/*https://developer.mozilla.org/ru/docs/Web/CSS/@media/prefers-color-scheme*/
-@media (prefers-color-scheme: dark) {
-    :root {
-        /*--color-background: var(--vt-c-black);*/
-        /*--color-background-soft: var(--vt-c-black-soft);*/
-        /*--color-background-mute: var(--vt-c-black-mute);*/
 
-        /*--color-border: var(--vt-c-divider-dark-2);*/
-        /*--color-border-hover: var(--vt-c-divider-dark-1);*/
-
-        /*--color-heading: var(--vt-c-text-dark-1);*/
-        /*--color-text: var(--vt-c-text-dark-2);*/
-    }
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    font-weight: normal;
-    font-size: 16px;
-    cursor: none; /* hide mouse layout*/
-}
-
-a {
-    text-decoration: none;
-}
-
-ul {
-    list-style-type: none;
-}

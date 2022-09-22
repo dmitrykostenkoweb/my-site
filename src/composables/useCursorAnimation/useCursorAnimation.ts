@@ -20,31 +20,15 @@ export default function useCursorAnimation() {
   const canvas = <HTMLCanvasElement>document.getElementsByTagName("canvas")[0];
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
+
   const config = {
     TEXTURE_DOWNSAMPLE: 1,
-    DENSITY_DISSIPATION: 0.99,
+    DENSITY_DISSIPATION: 0.98,
     VELOCITY_DISSIPATION: 0.99,
-    // // PRESSURE: 99,
-    PRESSURE_DISSIPATION: 0,
+    PRESSURE_DISSIPATION: 0.8,
     PRESSURE_ITERATIONS: 25,
-    CURL: 2,
-    SPLAT_RADIUS: 0.002,
-    SPLAT_FORCE: 10,
-    SHADING: true,
-    COLORFUL: true,
-    COLOR_UPDATE_SPEED: 10,
-    PAUSED: false,
-    BACK_COLOR: { r: 0, g: 0, b: 0 },
-    TRANSPARENT: true,
-    BLOOM: false,
-    BLOOM_ITERATIONS: 8,
-    BLOOM_RESOLUTION: 1024,
-    BLOOM_INTENSITY: 0.8,
-    BLOOM_THRESHOLD: 0.6,
-    BLOOM_SOFT_KNEE: 0.7,
-    SUNRAYS: false,
-    SUNRAYS_RESOLUTION: 196,
-    SUNRAYS_WEIGHT: 0.1,
+    CURL: 28,
+    SPLAT_RADIUS: 0.004,
   };
   const pointers: Pointers[] = [];
   const splatStack: any[] = [];
@@ -839,18 +823,25 @@ export default function useCursorAnimation() {
     density.swap();
   }
 
+  function random_rgba(): number[] {
+    const o = Math.round,
+      r = Math.random,
+      s = 255;
+    return [o(r() * s), o(r() * s), o(r() * s)];
+  }
+
   function multipleSplats(amount: number) {
     for (let i = 0; i < amount; i++) {
-      const color = [
-        Math.random() * 10,
-        Math.random() * 10,
-        Math.random() * 10,
-      ];
+      // const color = [
+      //   Math.random() * 10,
+      //   Math.random() * 10,
+      //   Math.random() * 10,
+      // ];
       const x = canvas.width * Math.random();
       const y = canvas.height * Math.random();
       const dx = 1000 * (Math.random() - 0.5);
       const dy = 1000 * (Math.random() - 0.5);
-      splat(x, y, dx, dy, color);
+      splat(x, y, dx, dy, random_rgba());
     }
   }
 

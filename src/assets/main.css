@@ -21,6 +21,8 @@ body {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     font-weight: normal;
+    background-color: black;
+    overflow: hidden;
 }
 
 a {
@@ -34,15 +36,20 @@ ul {
 canvas {
     width: 100vw;
     height: 100vh;
+    z-index: var(--canvas-z-index);
+
 }
 
 .content {
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     pointer-events: none;
-    -webkit-text-stroke: 1px white;
-    font-weight: 900;
     mix-blend-mode: color-dodge;
-    z-index: 100
+    z-index: var(--content-z-index);
+    color: white;
 }
 
 .icon-wrapper {
@@ -57,8 +64,6 @@ canvas {
     align-items: center;
     justify-content: center;
 
-    mix-blend-mode: darken;
-
 }
 
 .icon-wrapper svg {
@@ -67,9 +72,7 @@ canvas {
 }
 
 .cursor-icon {
-    position: absolute;
-    top: -4px;
-    right: -4px;
     border: 1px solid var(--primary);
     animation: zoom-in-zoom-out 1s infinite;
+    mix-blend-mode: unset;
 }

@@ -1,7 +1,7 @@
 .cursor {
     position: fixed;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     margin-left: -20px;
     margin-top: -20px;
     border-radius: 50%;
@@ -20,8 +20,8 @@
 .grow,
 .grow-small {
     transform: scale(2.5);
-    background: white;
-    mix-blend-mode: exclusion;
+    /*background: white;*/
+    /*mix-blend-mode: exclusion;*/
     border: none;
 }
 

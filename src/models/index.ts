@@ -1,1 +1,1 @@
-export type Links = "gmail" | "linkedin";
+export type Links = "gmail" | "linkedin" | "help";
